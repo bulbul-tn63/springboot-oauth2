@@ -94,9 +94,7 @@ public class UserServiceImpl implements UserService {
         }
         User user = new User();
         convertToUserFromPayload(user, userPayload);
-        String password = StringUtil.generateRandomPassword();
         user.setPassword(encoder.encode(userPayload.getPassword()));
-        userPayload.setPassword(password);
         return user;
     }
 

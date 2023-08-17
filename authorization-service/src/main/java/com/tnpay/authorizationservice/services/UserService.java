@@ -30,9 +30,9 @@ public class UserService implements UserDetailsService {
         final UserDTO user = this.userFeignClient.getUserByUsername(username).getBody();
 
         if (Objects.isNull(user))
-            throw new IllegalArgumentException("usuario não encontrado");
+            throw new IllegalArgumentException("user not found");
 
-        LOGGER.info("usuario [ {} ] encontrado", user);
+        LOGGER.info("user [ {} ] found", user);
         return new SecurityUser(user);
     }
 
